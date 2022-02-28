@@ -25,7 +25,7 @@ const AddNote = () => {
   };
 
   return (
-    <div>
+    <div >
       <h2>Add your notes</h2>
 
       <form className={`my-3 bg-${theme} text-${theme === 'dark'?'light':'dark'}`}>

@@ -48,11 +48,11 @@ export const Navbar = () => {
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
-                    location.pathname === "/about" ? "active" : ""
+                    location.pathname === "/blog" ? "active" : ""
                   } text-${theme === 'dark'?'light':'light'}`}
-                  to="/about"
+                  to="/blog"
                 >
-                  About
+                  Blog
                 </Link>
               </li>
             </ul>

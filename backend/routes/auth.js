@@ -47,10 +47,10 @@ router.post(
       });
       const data = {
         user: {
-          id: user.id,
+          id: user._id,
         },
       };
-      const authtoken = jwt.sign(data, JWT_SECRET);
+     const authtoken = jwt.sign(data, JWT_SECRET);
       success = true;
       // res.json(user)
       res.json({ success, authtoken });
@@ -90,6 +90,8 @@ router.post(
       }
       //compare password
       const passwordCompare = await bcrypt.compare(password, user.password);
+      console.log(password)
+      console.log( user.password)
       if (!passwordCompare) {
         return res.status(400).json({
           success,

@@ -22,7 +22,7 @@ function App() {
               <div className={`my-2 text-dark bg-light`}>
                 <Routes>
                   <Route exact path="/" element={<Home />} />
-                  <Route exact path="/about" element={<About />} />
+                  <Route exact path="/blog" element={<About />} />
                   <Route exact path="/signup" element={<SignUp />} />
                   <Route exact path="/login" element={<Login />} />
                 </Routes>
