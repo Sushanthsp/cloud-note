@@ -4,7 +4,7 @@ const router = express.Router();
 const fetchuser = require('../middleware/fetchuser');
 const Note = require('../models/Note');
 
-// ROUTE 1: post all notes using /addnotes route
+// ROUTE 1: fetchallnotes using /fetchallnotes route
 router.get('/fetchallnotes', fetchuser ,async (req, res) =>
 {
     try
@@ -13,12 +13,12 @@ router.get('/fetchallnotes', fetchuser ,async (req, res) =>
         res.json(notes)
     }
     catch (error) {
-        console.error(error.message);
+        console.error("problem with this");
         res.status(500).send("Internal Server Error");
     }  
 })
 
-//Router 2: Add notes using '/addnotes'route
+//Router 2: post all notes using /addnote
 
 router.post('/addnote', fetchuser,
     [
@@ -73,7 +73,6 @@ router.put('/updatenote/:id',[
 
             let note = await Note.findById(req.params.id);
             if (!note) { return res.status(404).send("not found") }
-        
             if (note.user.toString() !== req.user.id) {
                 return res.status(401).send("not found")
             }
