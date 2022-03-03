@@ -18,13 +18,13 @@ const SignUp = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({name:name,email:email,password:password}),
+      body: JSON.stringify({ name, email, password })
     });
     const json = await response.json();
       console.log(json);
       if (json.success)
       {
-          localStorage.setItem('token', json.authtoken)
+        localStorage.setItem('token', json.authtoken)
         navigate("/")
         setMsg("You have signed-up", "success")
       }
@@ -33,6 +33,7 @@ const SignUp = () => {
       }
   };
 
+  
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };

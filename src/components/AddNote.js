@@ -4,8 +4,7 @@ import { NoteContext } from "../context/notes/noteContext";
 
 const AddNote = () => {
   const {setMsg,theme} =useContext(ThemeContext)
-  const data = useContext(NoteContext);
-  const { addNote } = data;
+  const { addNote } = useContext(NoteContext);
 
   const [note, setNote] = useState({
     title: "",
@@ -50,6 +49,7 @@ const AddNote = () => {
             Description
           </label>
           <input
+            style={ {height: "200px", overflowYscroll:"scroll"} } 
             required
             minLength={5}
             type="text"

@@ -7,20 +7,19 @@ import { ThemeContext } from "../context/notes/ThemeContext";
 
 
 const Notes = () => {
-  const sush = useContext(NoteContext);
+  const  { notes, getNotes, editNote }  = useContext(NoteContext);
   const { setMsg} = useContext(ThemeContext)
   let navigate = useNavigate();
-  const { notes, getNotes, editNote } = sush;
+  
   useEffect(() => {
     if (localStorage.getItem("token")) {
       getNotes();
-      console.log(localStorage.getItem("token"));
     } else {
       navigate("/login");
     }
-
     // eslint-disable-next-line
   }, []);
+
   const ref = useRef(null);
   const refClose = useRef(null);
   const [note, setNote] = useState({
@@ -37,7 +36,7 @@ const Notes = () => {
       etitle: currentNote.title,
       edescription: currentNote.description,
       etag: currentNote.tag,
-    });
+    })
   };
 
   const handleClick = (e) => {
@@ -45,11 +44,11 @@ const Notes = () => {
     refClose.current.click();
     setNote({ etitle: "", edescription: "", etag: "" });
     setMsg("updated note", "success")
-
   };
 
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
+    
   };
 
   return (
@@ -161,9 +160,9 @@ const Notes = () => {
       </div>
       <h2>Your notes</h2>
       <div className="row">
-        {notes.map((note) => {
+        {notes.map((notes) => {
           return (
-            <Noteitem key={note._id} updateNote={updateNote} note={note} />
+            <Noteitem key={notes._id} updateNote={updateNote} note={notes} />
           );
         })}
       </div>

@@ -122,4 +122,38 @@ router.delete('/deletenote/:id', fetchuser,
 )
 
 
-module.exports=router
+//Router 5 fetch all notes to blog section from collection without authentication
+
+router.get('/blog', async (req, res) =>
+{
+    try
+    {
+        const allNotes = await Note.find({})
+        res.json(allNotes)
+    }
+    catch(error)
+    {
+        console.log(error.message)
+        res.status(500).send(error.message)
+    }
+})
+
+//Router 6 fetch all notes to blog section specific to tag without authentication
+
+router.get('/tag', async (req, res) =>
+{
+    try
+    {
+        const allNotes = await Note.find({ tag : req.query.tag })   
+        res.json(allNotes)
+    }
+    catch(error)
+    {
+        console.log(error.message)
+        res.status(500).send(error.message)
+    }
+})
+
+module.exports = router
+
+ 
