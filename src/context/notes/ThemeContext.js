@@ -10,7 +10,7 @@ export const ThemeState = (props) =>
         if (theme === "light") {
             setTheme("dark")
             setMsg("dark mode has been enabled", "success")
-            document.body.style.backgroundColor = "#07172a";
+            document.body.style.backgroundColor = "rgb(33,37,41)";
         }
         else {
             setTheme("light")

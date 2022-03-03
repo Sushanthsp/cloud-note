@@ -27,20 +27,15 @@ export const Navbar = () => {
   };
 
   return (
-    <div>
-       
+    <>
       <nav
-        className={`navbar navbar-expand-lg navbar-light text-${
-          theme === "dark" ? "light" : "light"
-        } bg-${theme === "dark" ? "primary" : "primary"}`}
+        className={`navbar navbar-expand-lg navbar-${
+          theme === "dark" ? "dark" : "light"
+        } bg-${theme === "dark" ? "secondary" : "light"}`}
       >
         <div className="container-fluid">
-          <Link
-            className={`navbar-brand text-${
-              theme === "dark" ? "light" : "light"
-            }`}
-            to="#"
-          >
+          <Link className="navbar-brand" to="/">
+            {" "}
             i-Notebook
           </Link>
           <button
@@ -60,69 +55,80 @@ export const Navbar = () => {
                 <Link
                   className={`nav-link ${
                     location.pathname === "/" ? "active" : ""
-                  } text-${theme === "dark" ? "light" : "light"}`}
+                  }`}
                   to="/"
                 >
                   Blog
                 </Link>
               </li>
-
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
                     location.pathname === "/addnotes" ? "active" : ""
-                  } text-${theme === "dark" ? "light" : "light"}`}
+                  }`}
                   aria-current="page"
                   to="/addnotes"
                 >
-                  Add Notes
+                  Add notes
                 </Link>
               </li>
             </ul>
 
             {location.pathname === "/" && (
-                <form className="d-flex mx-2">
-                  <input
-                    onChange={onChange}
-                    className="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button className="btn btn-success mx-2" type="submit">Clear</button>
-                </form>
+              <form className="d-flex">
+                <input
+                  className="form-control "
+                  onChange={onChange}
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </form>
             )}
-          </div>
-          {!localStorage.getItem("token") ? (
-            <div className="btn-group">
-              <Link to="/signup" className="btn btn-success mx-1">
-                SignUp
-              </Link>
-              <Link to="/login" className="btn btn-success mx-1">
-                Login
-              </Link>
-            </div>
-          ) : (
-            <div onClick={handleLogout} className="btn btn-success mx-2">
-              Log out
-            </div>
-          )}
 
-          <div className="form-check form-switch" onClick={() => toggle()}>
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-            />
-            <label className="form-check-label mx-1" htmlFor="flexSwitchCheckDefault">
-              Night mode
-            </label>
+            {!localStorage.getItem("token") ? (
+              <li className="nav-item">
+                <div className="btn-group">
+                  <Link to="/signup" className="btn btn-primary my-2 mx-1">
+                    SignUp
+                  </Link>
+                  <Link to="/login" className="btn btn-primary my-2 mx-1">
+                    Login
+                  </Link>
+                </div>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <div
+                  onClick={handleLogout}
+                  className="btn btn-primary my-2 mx-1 dark"
+                >
+                  Log out
+                </div>
+              </li>
+            )}
+            <li className="nav-item d-flex align-items-center  ">
+              <div
+                className="form-check form-switch  "
+                onClick={() => toggle()}
+              >
+                <input
+                  className="form-check-input "
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                />
+                <label
+                  className="form-check-label mx-1 text-dark"
+                  htmlFor="flexSwitchCheckDefault"
+                >
+                  Night mode
+                </label>
+              </div>
+            </li>
           </div>
         </div>
       </nav>
-
-      
-    </div>
+    </>
   );
 };

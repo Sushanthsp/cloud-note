@@ -18,27 +18,22 @@ export const FlexNavbar = () => {
 
   return (
     <>
-      <nav
-        className={`navbar navbar-expand-lg navbar text-${
-          theme === "dark" ? "light" : "light"
-        } bg-${theme === "dark" ? "success" : "success"}`}
-        // style={{"max-width": "70rem"}}
-      >
-        <div className="container-fluid">
+      <nav  className={`navbar border border-primary navbar-expand-lg bg-${theme === "dark" ? "secondary" : "light"}`}>
+        <div class="container-fluid">
           <button
             class="navbar-toggler"
             type="button"
-            data-toggle="collapse"
-            data-target="#navbarText"
-            aria-controls="navbarText"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav mr-auto row">
-              <li className="nav-item col active">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
                 <Link
                   to="#"
                   className="nav-item mx-2 my-2 active btn btn-primary"
@@ -47,7 +42,6 @@ export const FlexNavbar = () => {
                   All
                 </Link>
               </li>
-
               {unique.map((notes) => {
                 return <FilterButton key={notes._id} note={notes} fil={fil} />;
               })}

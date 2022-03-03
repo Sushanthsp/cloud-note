@@ -10,18 +10,19 @@ const Blog = () => {
   
   return (
     <>
-      <div
-        className={`container bg-${theme} text-${
+      <div  className={` bg-${theme} text-${
           theme === "dark" ? "light" : "dark"
-        }`}
-      >
-        <FlexNavbar className="" />
+        }`}>
+      <div className="container">
+      <FlexNavbar className="" />
+        
         <div className="row">
           {blog.map((notes) => {
             return <BlogItem key={notes._id} note={notes} />;
           })}
         </div>
-      </div>
+        </div>
+        </div>
     </>
   );
 };

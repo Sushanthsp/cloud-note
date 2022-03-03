@@ -1,12 +1,11 @@
-import React, { useState,useContext } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/notes/ThemeContext";
 
 const Login = () => {
-
-  const { setMsg } = useContext(ThemeContext)
-    const [credentials, setCredentials] = useState({ email: "", password: "" });
-    let navigate= useNavigate()
+  const { setMsg } = useContext(ThemeContext);
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  let navigate = useNavigate();
   const host = "http://localhost:5000";
 
   const handleSubmit = async (e) => {
@@ -23,17 +22,14 @@ const Login = () => {
       }),
     });
     const json = await response.json();
-      console.log(json);
-      if (json.success)
-      {
-          localStorage.setItem('token', json.authtoken)
-        navigate("/")
-        setMsg("You have logged in", "success")
-        
-      }
-      else {
-          alert("use proper credentials")
-      }
+    console.log(json);
+    if (json.success) {
+      localStorage.setItem("token", json.authtoken);
+      navigate("/");
+      setMsg("You have logged in", "success");
+    } else {
+      alert("use proper credentials");
+    }
   };
 
   const onChange = (e) => {
@@ -41,8 +37,8 @@ const Login = () => {
   };
 
   return (
-    <div>
-       <h2>Login to i-Notebook</h2>
+    <div className="container">
+      <h2>Login to i-Notebook</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -53,8 +49,8 @@ const Login = () => {
             value={credentials.email}
             onChange={onChange}
             className="form-control"
-                      id="email"
-                      name="email"
+            id="email"
+            name="email"
             aria-describedby="email"
           />
           <div id="emailHelp" className="form-text">
@@ -66,13 +62,12 @@ const Login = () => {
             Password
           </label>
           <input
-            
             type="password"
             onChange={onChange}
             value={credentials.password}
             className="form-control"
-                      id="password"
-                      name="password"
+            id="password"
+            name="password"
           />
         </div>
         <button type="submit" className="btn btn-primary">

@@ -39,7 +39,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="container">
        <h2>SignUp to i-Notebook</h2>
       <form onSubmit={handleSubmit}>
       <div className="mb-3">

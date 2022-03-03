@@ -48,7 +48,7 @@ const AddNote = () => {
           <label htmlFor="description" className="form-label">
             Description
           </label>
-          <input
+          <textarea
             style={ {height: "200px", overflowYscroll:"scroll"} } 
             required
             minLength={5}

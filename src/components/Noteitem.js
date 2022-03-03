@@ -6,9 +6,9 @@ const Noteitem = (props) => {
   const { note, updateNote } = props;
   const { deleteNote,setMsg } = useContext(NoteContext);
   return (
-    <div className="col-md-3">
-      <div className="card  my-2">
-        <div className="card-body bg-dark text-light">
+    <div className="col-lg-4" >
+      <div className="card my-2"  >
+        <div className="card-body bg-dark text-light" style={{"maxHeight":"350px", "overflow": "scroll"}}>
           <div className="d-flex justify-content-start align-items-baseline">
             <h5 className="card-title">{note.title}</h5>
             <i
@@ -27,7 +27,7 @@ const Noteitem = (props) => {
           <Link to="#" className="btn btn-primary">
             Go somewhere
           </Link>
-        </div>
+         </div>
       </div>
     </div>
   );
