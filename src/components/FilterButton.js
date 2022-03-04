@@ -9,7 +9,7 @@ export const FilterButton = (props) => {
     
     return (
         
-      <li class="nav-item active col">
+      <li className="nav-item active col">
         <Link
         type="button" className="nav-item mx-2 my-2 btn btn-primary" to="#" onClick={() => fil(note.tag)}>{note.tag}</Link>
              </li>

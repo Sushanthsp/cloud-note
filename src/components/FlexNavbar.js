@@ -14,14 +14,15 @@ export const FlexNavbar = () => {
 
   useEffect(() => {
     fetchAllNotes();
-  }, []);
+  }
+     ); 
 
   return (
     <>
       <nav  className={`navbar shadow-lg mb-5 rounded border rounded border-primary navbar-expand-lg bg-${theme === "dark" ? "secondary" : "light"}`}>
-        <div class="container-fluid">
+        <div className="container-fluid">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -29,11 +30,11 @@ export const FlexNavbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon rounded bg-primary"></span>
+            <span className="navbar-toggler-icon rounded bg-primary"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
                 <Link
                   to="#"
                   className="nav-item mx-2 my-2 active btn btn-primary"

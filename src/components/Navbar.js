@@ -36,7 +36,7 @@ export const Navbar = () => {
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             {" "}
-            i-Notebook
+            clouD-Note
           </Link>
           <button
             className="navbar-toggler"
