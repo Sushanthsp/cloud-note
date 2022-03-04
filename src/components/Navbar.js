@@ -29,7 +29,7 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg navbar-${
+        className={`navbar rounded-bottom border shadow p-3 mb-1 rounded border-primary navbar-expand-lg navbar-${
           theme === "dark" ? "dark" : "light"
         } bg-${theme === "dark" ? "secondary" : "light"}`}
       >
@@ -75,7 +75,7 @@ export const Navbar = () => {
             </ul>
 
             {location.pathname === "/" && (
-              <form className="d-flex">
+              <form className="d-flex" style={{"marginRight" : "20px", "width": "350px"}}>
                 <input
                   className="form-control "
                   onChange={onChange}
@@ -89,10 +89,10 @@ export const Navbar = () => {
             {!localStorage.getItem("token") ? (
               <li className="nav-item">
                 <div className="btn-group">
-                  <Link to="/signup" className="btn btn-primary my-2 mx-1">
+                  <Link to="/signup" className="btn btn-primary rounded my-2 mx-1">
                     SignUp
                   </Link>
-                  <Link to="/login" className="btn btn-primary my-2 mx-1">
+                  <Link to="/login" className="btn btn-primary rounded my-2 mx-1">
                     Login
                   </Link>
                 </div>
@@ -109,22 +109,22 @@ export const Navbar = () => {
             )}
             <li className="nav-item d-flex align-items-center  ">
               <div
-                className="form-check form-switch  "
+                className="form-check form-switch" 
                 onClick={() => toggle()}
               >
                 <input
-                  className="form-check-input "
+                  className="form-check-input"
                   type="checkbox"
                   role="switch"
                   id="flexSwitchCheckDefault"
-                />
+                /></div>
                 <label
                   className="form-check-label mx-1 text-dark"
                   htmlFor="flexSwitchCheckDefault"
                 >
                   Night mode
                 </label>
-              </div>
+              
             </li>
           </div>
         </div>

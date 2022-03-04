@@ -18,7 +18,7 @@ export const FlexNavbar = () => {
 
   return (
     <>
-      <nav  className={`navbar border border-primary navbar-expand-lg bg-${theme === "dark" ? "secondary" : "light"}`}>
+      <nav  className={`navbar shadow-lg mb-5 rounded border rounded border-primary navbar-expand-lg bg-${theme === "dark" ? "secondary" : "light"}`}>
         <div class="container-fluid">
           <button
             class="navbar-toggler"
@@ -29,7 +29,7 @@ export const FlexNavbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon rounded bg-primary"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">

@@ -37,3 +37,9 @@
   }
 }
 
+::marker {
+  color: rgb(28, 28, 218);
+  font-size: .1rem;
+  display: none;
+  margin-right: 0px;
+}

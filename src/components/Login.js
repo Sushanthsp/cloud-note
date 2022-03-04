@@ -35,8 +35,10 @@ const Login = () => {
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
-
+  const { theme } = useContext(ThemeContext)
+  
   return (
+    <div className={`bg-${theme} text-${theme === 'dark'?'light':'dark'}`}>
     <div className="container">
       <h2>Login to i-Notebook</h2>
       <form onSubmit={handleSubmit}>
@@ -74,7 +76,8 @@ const Login = () => {
           Submit
         </button>
       </form>
-    </div>
+      </div>
+      </div>
   );
 };
 

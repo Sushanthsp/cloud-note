@@ -10,15 +10,15 @@ export const Alert = (props) => {
         return letter.charAt(0).toUpperCase() + letter.slice(1)
   }
   return (
-    <div>
-      <div
+    <div style={{height: "50px"}}>
+     {alerts.message && <div
         className={`alert alert-${alerts.type}  alert-dismissible fade show`}
         role="alert"
       >
-        {/* <strong>{beautify(alerts.type)}</strong> 
-        {beautify(alerts.message)} */}
-        {alerts.message}
-      </div>
+         <strong>{beautify(alerts.type)}</strong> 
+            {beautify(alerts.message)}
+         
+      </div>}
     </div>
   );
 };
