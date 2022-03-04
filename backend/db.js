@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const mongoURI =
-"mongodb+srv://Sushanthspoojary:<password>@cloud-note.4azha.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+"mongodb+srv://Sushanthspoojary:Mongodb*2468@cloud-note.4azha.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 var db;
 var waiting = []
