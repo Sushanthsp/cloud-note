@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "../context/notes/ThemeContext";
 import { BlogContext } from "../context/notes/BlogContext";
 import BlogItem from "./BlogItem";
