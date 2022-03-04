@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const mongoURI =
-"mongodb://localhost:27017/inotebook?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false";
+"mongodb+srv://Sushanthspoojary:<password>@cloud-note.4azha.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 var db;
 var waiting = []
