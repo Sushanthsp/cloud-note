@@ -5,7 +5,6 @@ import AddNote from "./AddNote";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/notes/ThemeContext";
 
-
 const Notes = () => {
   const  { notes, getNotes, editNote }  = useContext(NoteContext);
   const { setMsg} = useContext(ThemeContext)
