@@ -1,24 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState ,useEffect} from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ThemeContext } from "../context/notes/ThemeContext";
 import { BlogContext } from "../context/notes/BlogContext";
 
 export const Navbar = () => {
   const { toggle, theme, setMsg } = useContext(ThemeContext);
-  const { searchFilter, blog, stopRefresh } = useContext(BlogContext);
+  const { searchFilter, blog ,fetchAllNotes} = useContext(BlogContext);
   const [searchTerm, setSearchTerm] = useState(blog);
-
-  const onChange = (e) => {
-    if (e.target.value === "") {
-      e.preventDefault();
-      window.location.reload(false);
-      stopRefresh();
-    } else {
-      const search = e.target.value.toLowerCase();
-      setSearchTerm(search);
-      searchFilter(searchTerm);
-    }
-  };
+  const [input, setInput] = useState("c")
 
   let navigate = useNavigate();
   let location = useLocation();
@@ -28,6 +17,19 @@ export const Navbar = () => {
     setMsg("You have logged out", "success");
   };
 
+  const onChange = (e) => {
+    if (e.target.value === "") {
+      fetchAllNotes()
+      setInput(null)
+    }
+    else {
+      setInput(e.target.value)
+      const search = e.target.value.toLowerCase();
+      setSearchTerm(search);
+      searchFilter(searchTerm);
+    }
+  }
+ 
   return (
     <>
       <nav
@@ -82,6 +84,7 @@ export const Navbar = () => {
                 style={{ marginRight: "20px", width: "350px" }}
               >
                 <input
+                  value={input}
                   className="form-control "
                   onChange={onChange}
                   type="search"

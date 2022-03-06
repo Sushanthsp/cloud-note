@@ -35,18 +35,8 @@ export const BlogState = (props) => {
     setBlog(searchTerm);
   };
 
-  const stopRefresh = (event) => {
-    const empty =
-      blog.filter((note) =>
-        note.description.toLowerCase().includes("")
-      ) || ((note) => note.title.toLowerCase().includes(""));
-    if (empty === "") {
-      event.preventDefault();
-    }
-  };
-
   return (
-    <BlogContext.Provider value={{ blog, fetchAllNotes, fil, searchFilter,stopRefresh }}>
+    <BlogContext.Provider value={{ blog, fetchAllNotes, fil, searchFilter }}>
       {props.children}
     </BlogContext.Provider>
   );
