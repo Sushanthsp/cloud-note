@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import { BlogContext } from "../context/notes/BlogContext";
 
@@ -6,7 +6,7 @@ export const FilterButton = (props) => {
     
     const {note} = props
     const { fil } = useContext(BlogContext);
-    
+  
     return (
         
       <li className="nav-item active col">

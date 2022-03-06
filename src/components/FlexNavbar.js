@@ -14,8 +14,8 @@ export const FlexNavbar = () => {
 
   useEffect(() => {
     fetchAllNotes();
-  }
-     ); 
+  },
+   []); 
 
   return (
     <>
