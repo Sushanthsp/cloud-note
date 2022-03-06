@@ -5,12 +5,14 @@ import { BlogContext } from "../context/notes/BlogContext";
 
 export const Navbar = () => {
   const { toggle, theme, setMsg } = useContext(ThemeContext);
-  const { searchFilter, blog } = useContext(BlogContext);
+  const { searchFilter, blog, stopRefresh } = useContext(BlogContext);
   const [searchTerm, setSearchTerm] = useState(blog);
 
   const onChange = (e) => {
     if (e.target.value === "") {
-      window.location.reload(true);
+      e.preventDefault();
+      window.location.reload(false);
+      stopRefresh();
     } else {
       const search = e.target.value.toLowerCase();
       setSearchTerm(search);
@@ -75,7 +77,10 @@ export const Navbar = () => {
             </ul>
 
             {location.pathname === "/" && (
-              <form className="d-flex" style={{"marginRight" : "20px", "width": "350px"}}>
+              <form
+                className="d-flex"
+                style={{ marginRight: "20px", width: "350px" }}
+              >
                 <input
                   className="form-control "
                   onChange={onChange}
@@ -89,10 +94,16 @@ export const Navbar = () => {
             {!localStorage.getItem("token") ? (
               <li className="nav-item">
                 <div className="btn-group">
-                  <Link to="/signup" className="btn btn-primary rounded my-2 mx-1">
+                  <Link
+                    to="/signup"
+                    className="btn btn-primary rounded my-2 mx-1"
+                  >
                     SignUp
                   </Link>
-                  <Link to="/login" className="btn btn-primary rounded my-2 mx-1">
+                  <Link
+                    to="/login"
+                    className="btn btn-primary rounded my-2 mx-1"
+                  >
                     Login
                   </Link>
                 </div>
@@ -108,23 +119,20 @@ export const Navbar = () => {
               </li>
             )}
             <li className="nav-item d-flex align-items-center  ">
-              <div
-                className="form-check form-switch" 
-                onClick={() => toggle()}
-              >
+              <div className="form-check form-switch" onClick={() => toggle()}>
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
                   id="flexSwitchCheckDefault"
-                /></div>
-                <label
-                  className="form-check-label mx-1 text-dark"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  Night mode
-                </label>
-              
+                />
+              </div>
+              <label
+                className="form-check-label mx-1 text-dark"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Night mode
+              </label>
             </li>
           </div>
         </div>
