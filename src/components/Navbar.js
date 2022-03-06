@@ -1,4 +1,4 @@
-import React, { useContext, useState ,useEffect} from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ThemeContext } from "../context/notes/ThemeContext";
 import { BlogContext } from "../context/notes/BlogContext";
