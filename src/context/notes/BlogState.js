@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 
 export const BlogState = (props) => {
-  const host = "http://localhost:5000";
+  const host = "https://cloudsnotess.herokuapp.com/";
   const blogInitial = [];
   const [blog, setBlog] = useState(blogInitial);
 
