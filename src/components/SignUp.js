@@ -7,7 +7,7 @@ const SignUp = () => {
   const { setMsg } = useContext(ThemeContext)
     const [credentials, setCredentials] = useState({ name:"", email: "", password: "" ,cpassword:""});
     let navigate= useNavigate()
-  const host = "https://cloudsnotess.herokuapp.com/";
+  const host = "https://cloudsnotess.herokuapp.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
