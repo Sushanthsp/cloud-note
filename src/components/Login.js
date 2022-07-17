@@ -6,7 +6,7 @@ const Login = () => {
   const { setMsg } = useContext(ThemeContext);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
-  const host = "https://cloudsnotess.herokuapp.com";
+  const host = "http://localhost:5000";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
