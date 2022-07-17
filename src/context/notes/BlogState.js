@@ -28,6 +28,7 @@ export const BlogState = (props) => {
   };
 
   const searchFilter = (searchWord) => {
+    
     const searchTerm =
       blog.filter((note) =>
         note.description.toLowerCase().includes(searchWord)
